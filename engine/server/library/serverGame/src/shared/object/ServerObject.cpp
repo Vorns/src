@@ -1485,7 +1485,8 @@ bool ServerObject::canTradeRecursive(bool testPlayers) const
 
 bool ServerObject::markedNoTrade() const
 {
-	return ( getObjVars().hasItem("noTrade") || getObjVars().hasItem("notrade") );
+	return false;	
+	//return ( getObjVars().hasItem("noTrade") || getObjVars().hasItem("notrade") );
 }
 
 //-----------------------------------------------------------------------
@@ -1531,13 +1532,13 @@ bool ServerObject::markedNoTradeShared(bool includeCheckForNoTrade) const
 	}
 
 	if (getObjVars().hasItem("noTradeShared"))
-		return true;
+		return false; //return true;
 
 	// see if the item type is no trade "shared"
 	if (m_staticItemName.get().empty())
-		return (s_noTradeSharedTemplateItemType.count(getTemplateCrc()) > 0);
+		return false; //return (s_noTradeSharedTemplateItemType.count(getTemplateCrc()) > 0);
 
-	return (s_noTradeSharedStaticItemType.count(m_staticItemName.get()) > 0);
+	 return false; //return (s_noTradeSharedStaticItemType.count(m_staticItemName.get()) > 0);
 }
 
 //-----------------------------------------------------------------------
@@ -1548,9 +1549,9 @@ bool ServerObject::markedNoTradeRemovable() const
 		return false;
 
 	if (m_staticItemName.get().empty())
-		return (s_noTradeRemovableTemplateItemType.count(getTemplateCrc()) > 0);
+		return false;//return (s_noTradeRemovableTemplateItemType.count(getTemplateCrc()) > 0);
 
-	return (s_noTradeRemovableStaticItemType.count(m_staticItemName.get()) > 0);
+	 return false; //return (s_noTradeRemovableStaticItemType.count(m_staticItemName.get()) > 0);
 }
 
 //-----------------------------------------------------------------------
