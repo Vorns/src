@@ -4923,16 +4923,17 @@ void TangibleObject::getAttributes(AttributeVector & data) const
 	{
 		if (markedNoTrade())
 		{
-			data.push_back(std::make_pair(SharedObjectAttributes::no_trade, Unicode::emptyString));
+			// Low-pop private server hide no trade tag.
+			//data.push_back(std::make_pair(SharedObjectAttributes::no_trade, Unicode::emptyString));
 
 			if (markedNoTradeRemovable())
 			{
-				data.push_back(std::make_pair(SharedObjectAttributes::no_trade_removable, Unicode::emptyString));
+				//data.push_back(std::make_pair(SharedObjectAttributes::no_trade_removable, Unicode::emptyString));
 			}
 
 			if (markedNoTradeShared(true))
 			{
-				data.push_back(std::make_pair(SharedObjectAttributes::no_trade_shared, Unicode::emptyString));
+				//data.push_back(std::make_pair(SharedObjectAttributes::no_trade_shared, Unicode::emptyString));
 			}
 		}
 		else
@@ -4940,16 +4941,16 @@ void TangibleObject::getAttributes(AttributeVector & data) const
 			GameScriptObject * const gso = const_cast<GameScriptObject *>(getScriptObject());
 			if (gso && gso->hasScript(NOMOVE_SCRIPT))
 			{
-				data.push_back(std::make_pair(SharedObjectAttributes::no_trade, Unicode::emptyString));
+				//data.push_back(std::make_pair(SharedObjectAttributes::no_trade, Unicode::emptyString));
 
 				if (markedNoTradeRemovable())
 				{
-					data.push_back(std::make_pair(SharedObjectAttributes::no_trade_removable, Unicode::emptyString));
+					//data.push_back(std::make_pair(SharedObjectAttributes::no_trade_removable, Unicode::emptyString));
 				}
 
 				if (markedNoTradeShared(false))
 				{
-					data.push_back(std::make_pair(SharedObjectAttributes::no_trade_shared, Unicode::emptyString));
+					//data.push_back(std::make_pair(SharedObjectAttributes::no_trade_shared, Unicode::emptyString));
 				}
 			}
 		}
